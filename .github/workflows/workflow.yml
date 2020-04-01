@@ -1,4 +1,7 @@
-on: [push]
+on: 
+  push:
+    branches:
+      - master
 
 name: Node.js
 
@@ -27,7 +30,7 @@ jobs:
     # deploy web app using Azure credentials
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: 'node-rn'
+        app-name: 'cjc-cashier-console'
 
     # Azure logout 
     - name: logout
