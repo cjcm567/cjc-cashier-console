@@ -14,19 +14,18 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         
-    - name: Setup Node 10.x
+    - name: Setup Node 12.x
       uses: actions/setup-node@v1
       with:
-        node-version: '10.x'
+        node-version: '12.x'
     
     - name: 'npm install, build, and test'
       run: |
         npm install
         npm run build --if-present
-        npm run test --if-present
                
     # deploy web app using Azure credentials
-    - uses: azure/webapps-deploy@v1
+    - uses: azure/webapps-deploy@v2
       with:
         app-name: 'node-rn'
 
